@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+	/* Style for the modal dialog box */
+	.modal {
+	  display: none;
+	  position: fixed;
+	  z-index: 1;
+	  left: 0;
+	  top: 0;
+	  width: 100%;
+	  height: 100%;
+	  overflow: auto;
+	  background-color: rgba(0,0,0,0.4);
+	}
+
+	/* Style for the modal content */
+	.modal-content {
+      display: float;
+      float: left;
+	  background-color: #fefefe;
+	  margin: 15% auto;
+	  padding: 20px;
+	  border: 1px solid #888;
+	  width: 40%;
+	}
+    .test {
+        display: inline-block;
+        position: relative;
+        left:50%;
+
+    }
+  
+
+	/* Style for the close button */
+	.close {
+	  color: #aaa;
+	  float: right;
+	  font-size: 28px;
+	  font-weight: bold;
+	}
+
+	.close:hover,
+	.close:focus {
+	  color: black;
+	  text-decoration: none;
+	  cursor: pointer;
+	}
+	</style>
+</head>
+<body>
+
+	<!-- Button to open the modal -->
+	<button onclick="openModal()">Open Modal</button>
+
+	<!-- The modal dialog box -->
+	<div id="myModal" class="modal">
+	  <!-- Modal content -->
+	  <div class="modal-content">
+	    <span class="close" onclick="closeModal()">&times;</span>
+	    <button class="test"><a href="homepage.html">home</a></button>
+	  </div>
+	</div>
+
+	<script>
+	// Get the modal
+	var modal = document.getElementById("myModal");
+
+	// Get the button that opens the modal
+	var btn = document.getElementsByTagName("button")[0];
+
+	// Get the <span> element that closes the modal
+	var span = document.getElementsByClassName("close")[0];
+
+	// When the user clicks the button, open the modal 
+	function openModal() {
+	  modal.style.display = "block";
+	}
+
+	// When the user clicks on <span> (x), close the modal
+	function closeModal() {
+	  modal.style.display = "none";
+	}
+
+	// When the user clicks anywhere outside of the modal, close it
+	window.onclick = function(event) {
+	  if (event.target == modal) {
+	    modal.style.display = "none";
+	  }
+	}
+	</script>
+
+</body>
+</html>

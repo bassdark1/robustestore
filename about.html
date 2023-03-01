@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="about.css"></link>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;700&display=swap" rel="stylesheet">
+<title>Robuste</title>
+</head>
+<body>
+    <div class="header">
+        <div class="title">
+          <button class="menu-button" onclick="openModal()">Menu</button>
+      
+          <!-- The modal dialog box -->
+          <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+              <span class="close" onclick="closeModal()">&times;</span>
+              <button class="tuque-menu"><a href="tuques.html">Tuques</a></button>
+              <button class="about-menu"><a href="about.html">À propos</a></button>
+              <button class="cart-menu"><a href="cart.html">Panier(<span id="cart-size"></span>)</a></button>
+            </div>
+          </div>
+          <script>
+            // Get the modal
+            var modal = document.getElementById("myModal");
+        
+            // Get the button that opens the modal
+            var btn = document.getElementsByTagName("button")[0];
+        
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+        
+            // When the user clicks the button, open the modal 
+            function openModal() {
+              modal.style.display = "block";
+            }
+        
+            // When the user clicks on <span> (x), close the modal
+            function closeModal() {
+              modal.style.display = "none";
+            }
+        
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+              if (event.target == modal) {
+                modal.style.display = "none";
+              }
+            }
+            </script>
+             <script>
+                function updateCartSize() {
+            let cartSize = document.querySelector('#cart-size');
+            let size = 0;
+          
+            for (let title in cart) {
+              size += cart[title]['quantity'];
+            }
+          
+            cartSize.textContent = size;
+          }
+          function displayCart() {
+            updateCartSize();
+          }
+          
+              </script>
+          <div class="robuste"><a style="text-decoration: none; color: rgb(33,33,33);" href="homepage.html"><button class="robuste-button">ROBUSTE  <span class="bromont">BROMONT</span></button></a> </div>
+          </div>
+          <div class="menu">
+           <div class="tuque"> <button class="tuque-button"><a style="text-decoration: none; color:rgb(35, 33, 33)" href="tuques.html">Tuques</a> </button> </div>
+           <div class="about"> <button class="about-button"><a style="text-decoration: none; color:rgb(35, 33, 33)" href="about.html">À propos</a></button> </div>
+           <div class="galerie"> <button class="galerie-button">Galerie</button> </div>
+           <div class="cart"> <button class="cart-button"><a style="text-decoration: none; color:rgb(35, 33, 33)" href="cart.html">Panier</a></button></div>
+          </div>
+         </div>
+</body>

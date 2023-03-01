@@ -1,0 +1,58 @@
+  * {
+    margin: 0;
+    padding:0;
+  }
+  
+  .container-img {
+    position: relative;
+    width: 100%;
+  }
+  
+  .gang-img {
+  height: auto;
+  width:100%;
+  padding: 0;
+
+  }
+
+  
+  .enter {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    cursor: pointer;
+    padding: 15px;
+    background-color: rgb(58, 56, 56);
+    font-family: 'Lato';
+    font-weight: 300;
+    border-style: solid;
+    color:rgb(124, 127, 122);
+    transition: padding 1.5s;
+    transition-timing-function: cubic-bezier(0.1, 0.3, 0.1, 0.3);
+
+
+  }
+  .side {
+    display: inline-block;
+    margin-bottom: 100px;
+    color:white;
+  }
+  
+  .enter:hover {
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: rgb(58, 56, 56);
+    border:solid;
+    font-size:20px;
+    box-shadow: 5px 5px 5px ;
+  }
+  .container-corner {
+    position: relative;
+    text-align: center;
+    color:black;
+  }
+

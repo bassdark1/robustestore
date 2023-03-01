@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="tuque.css"></link>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;700&display=swap" rel="stylesheet">
+    <title>Robuste</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+  <div class="header">
+    <div class="title">
+      <button class="menu-button" onclick="openModal()">Menu</button>
+      <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close" onclick="closeModal()">&times;</span>
+          <button class="tuque-menu"><a style="text-decoration: none; color: rgb(35, 33, 33);" href="tuques.html">Tuques</a></button>
+        <button class="about-menu"><a style="text-decoration: none; color: rgb(35, 33, 33);" href="about.html">À propos</a></button>
+        <button class="cart-menu"><a style="text-decoration: none; color: rgb(35, 33, 33);" href="cart.html">Panier(<span id="cart-size"></span>)</a></button>
+        </div>
+      </div>
+    
+      <script>
+      // Get the modal
+      var modal = document.getElementById("myModal");
+    
+      // Get the button that opens the modal
+      var btn = document.getElementsByTagName("button")[0];
+    
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName("close")[0];
+    
+      // When the user clicks the button, open the modal 
+      function openModal() {
+        modal.style.display = "block";
+      }
+    
+      // When the user clicks on <span> (x), close the modal
+      function closeModal() {
+        modal.style.display = "none";
+      }
+    
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+      </script>
+      <div class="robuste"><a style="text-decoration: none; color: rgb(33,33,33);" href="homepage.html"><button class="robuste-button">ROBUSTE  <span class="bromont">BROMONT</span></button></a> </div>
+  </div>
+  <div class="menu">
+   <div class="tuque"> <button class="tuque-button"><a style="text-decoration: none; color:rgb(35, 33, 33)" href="tuques.html">Tuques</a> </button> </div>
+   <div class="about"> <button class="about-button"><a style="text-decoration: none; color:rgb(35, 33, 33)" href="about.html">À propos</a></button> </div>
+   <div class="galerie"> <button class="galerie-button">Galerie</button> </div>
+   <div class="cart"> <button class="cart-button"><a style="text-decoration: none; color:rgb(35, 33, 33)" href="cart.html">Panier(<span id="cart-size"></span>)</a></button></div>
+  </div>
+ </div>
+      
+      <div class="tuque-product">
+        <div class="acheter-tuque">
+          <button class="add-to-cart">Acheter</button>
+          <a href="redflakes.html"><img src="Images 2/IMG_3559-removebg-preview.png" class="tuque-image"></a>
+        </div>
+        <div class="product-title"><p>Tuque/Col "Red Flakes"</p></div>
+        <div class="price"><p>$25.00</p></div>
+        <button class="add-to-cart" data-title="Tuque/Col Red Flakes" data-price="25.00" data-quantity="0">Acheter</button>
+        </div>
+
+      </div>
+      <div class="tuque-product"> 
+        <a href="classic.html"><img src="Images 2/IMG_3570-removebg-preview.png" class="tuque-image"></a>
+        <div class="product-title">
+            <p>Tuque/Col "Classic"</p>
+         </div>
+         <div class="price"> <p>25.00$ </p></div>
+         <button class="add-to-cart" data-title="Tuque/Col Classic " data-price="25.00" data-quantity="0">Acheter</button>
+    </div>
+    
+
+    <!-- more product divs -->
+
+    <script>
+      // initialize cart on page load
+      let cart = JSON.parse(localStorage.getItem('cart')) || {};
+
+      function addProduct(title, price) {
+        if (title in cart) {
+          cart[title]['quantity'] += 1;
+        } else {
+          cart[title] = {'price': price, 'quantity': 1};
+        }
+
+        // save cart to browser storage
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        // update cart display
+        displayCart();
+      }
+
+      function displayCart() {
+        let cartItems = document.querySelector('.cart-items');
+        let cartTotal = document.querySelector('.total');
+
+        cartItems.innerHTML = '';
+        cartTotal.textContent = `$${getCartTotal().toFixed(2)}`;
+
+        for (let title in cart) {
+          let quantity = cart[title]['quantity'];
+          let total = (cart[title]['price'] * quantity).toFixed(2);
+
+          // create HTML element for cart item
+          let li = document.createElement('li');
+          li.textContent = `${title} x ${quantity} - $${total}`;
+          cartItems.appendChild(li);
+        }
+      }
+
+      function getCartTotal() {
+        let total = 0;
+
+        for (let title in cart) {
+          total += cart[title]['price'] * cart[title]['quantity'];
+        }
+
+        return total;
+      }
+
+      // attach click event listener to all "add-to-cart" buttons
+      let addToCartButtons = document.querySelectorAll('.add-to-cart');
+      addToCartButtons.forEach(button => {
+        let title = button.dataset.title;
+        let price = parseFloat(button.dataset.price);
+
+        button.addEventListener('click', () => {
+          addProduct(title, price);
+        });
+      });
+
+      // display initial cart contents
+      displayCart();
+    </script>
+    <script>
+      function updateCartSize() {
+  let cartSize = document.querySelector('#cart-size');
+  let size = 0;
+
+  for (let title in cart) {
+    size += cart[title]['quantity'];
+  }
+
+  cartSize.textContent = size;
+}
+function displayCart() {
+  updateCartSize();
+}
+
+    </script>
+  
+      
+  <div class="footer">
+    <div class="logo-foot"><img src="Images 2/Screenshot_2023-02-17_at_23.59.17-removebg-preview.png"class="logo"></div>
+    <div class="info">
+    <div class="contact">
+     <p>CONTACT</p>
+     <button onclick="sendMail()" class="email">robustebromont@gmail.com</button>
+  </div>
+    </div>
+     <div class="support">
+     <p></p>
+    </div>
+    <div class="about-foot">
+     <p>À PROPOS</p>
+    </div> 
+  </div>
+  <script>
+    function sendMail(){
+      window.open('mailto:robustebromont@gmail.com')
+    }
+  </script>
+    </div>
+</body>
+</html>

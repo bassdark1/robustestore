@@ -1,0 +1,265 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+  background-color: rgb(218, 218, 215);
+}
+
+.header {
+    background-color: rgb(189,189,189);
+    padding-bottom: 40px;
+    height:80px;
+    width: 100%;
+    grid-template-columns: 1fr 1.5fr;
+  }
+  .menu-button {
+    font-size: 24px;
+    font-family: 'Outfit';
+    font-weight: 700;
+    display: none;
+    color: rgb(33,33,33);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+  }
+  .tuque-menu {
+    display: block;
+  }
+  .about-menu {
+    display: block;
+  }
+  .cart-menu {
+    display: block;
+  }
+  .modal {
+	  display: none;
+	  position: fixed;
+	  z-index: 1;
+	  left: 0;
+	  top: 0;
+	  width: 100%;
+	  height: 200%;
+	  overflow: auto;
+	  background-color: rgba(0,0,0,0.4);
+	}
+
+	/* Style for the modal content */
+	.modal-content {
+    position: absolute;
+    top: 20px;
+    display: inline-block;
+	  background-color: #000000;
+	  padding: 20px;
+	  border: 1px solid #888;
+	  width: 40%;
+	}
+    .test {
+        display: inline-block;
+        position: relative;
+        left:50%;
+
+    }
+  
+
+	/* Style for the close button */
+	.close {
+	  color: #ffffff;
+	  float: right;
+	  font-size: 28px;
+	  font-weight: bold;
+	}
+
+	.close:hover,
+	.close:focus {
+	  color: rgb(157, 148, 148);
+	  text-decoration: none;
+	  cursor: pointer;
+	}
+  
+  .tuque, .about, .galerie, .robuste, .cart {
+    display: inline;
+  }
+  
+  .menu {
+    position: relative;
+    left: 175px;
+    width: 50%;
+    display: inline-block;
+    margin-top: 15px;
+  }
+  
+  .title {
+    margin: 0;
+    display: inline-block;
+  }
+  
+  .cart-button {
+    background-color: transparent;
+    color: rgb(33,33,33);
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight:300;
+    font-size: 20px;
+    cursor: pointer;
+    border-style: none;
+    margin-left: 75px;
+    padding: 8px 40px;  
+  }
+  .robuste-button {
+    font-size: 24px;
+    font-family: 'Outfit';
+    font-weight: 700;
+    display: inline-block;
+    color: rgb(33,33,33);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    left: 20px;
+  }
+  
+  
+  
+  .bromont {
+    font-family: 'Outfit';
+    font-weight: 200;
+  }
+  
+  .tuque-button,
+  .about-button,
+  .galerie-button {
+    border: none;
+    background-color: transparent;
+    color: rgb(33,33,33);
+    font-family:'IBM Plex Mono', monospace;
+    font-weight: 300;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 8px 15px;
+  }
+  
+  @media (max-width: 768px) {
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    
+    .header {
+      display: flex;
+      flex-direction: column;
+      height: auto;
+    }
+  
+    .menu {
+      display: none;
+    }
+    .robuste-button {
+        height:30px;
+        position: relative;
+        left:130px;
+      }
+    .bromont {
+      position: relative;
+      top:40px;
+      left:-120px;
+    }
+    .menu-button {
+      position: relative;
+      top: 30px;
+      left:15px;
+      display: inline-block;
+    }
+  
+    .tuque-button,
+    .about-button,
+    .galerie-button,
+    .cart-button {
+      margin: 10px;
+    } }
+    .tuque-button:hover   {
+        box-shadow: inset 1px 1px rgb(255,255,255), 1px 1px rgb(0,0,0);
+        
+        }
+        .tuque-button:active {
+            box-shadow: none;
+        }
+        
+        .about-button:hover {
+            box-shadow: inset 1px 1px rgb(255,255,255), 1px 1px rgb(0,0,0);
+        
+        } 
+        .about-button:active {
+            box-shadow: none;
+        }
+        .galerie-button:hover {
+            box-shadow: inset 1px 1px rgb(255,255,255), 1px 1px rgb(0,0,0); 
+        } 
+        .galerie-button:active {
+            box-shadow: none;
+        }
+        .cart-button:hover {
+            box-shadow: inset 1px 1px rgb(255,255,255), 1px 1px rgb(0,0,0); 
+        } 
+        .cart-button:active {
+            box-shadow: none;
+        }
+    
+ .product-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.product-image {
+  flex-basis: 50%;
+  max-width: 50%;
+  height: auto;
+}
+.product-details {
+  flex-basis: 50%;
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.name {
+  font-family: 'Outfit';
+  font-weight: 200;
+  margin-bottom: 10px;
+}
+.tuque-name {
+  font-family: 'Outfit';
+  margin-bottom: 10px;
+}
+.tuque-price {
+  font-family: 'Outfit';
+  font-weight: 300;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.add-to-cart {
+  padding: 15px 20px;
+  font-family: 'Outfit';
+  cursor: pointer;
+  background-color: transparent;
+  font-size: 20px;
+  border-color: #343131;
+  border-width: 1px;
+}
+@media only screen and (max-width: 768px) {
+  .product-container {
+    flex-direction: column;
+  }
+  .product-image, .product-details {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+}
+
+
+ .add-to-cart:hover {
+  background-color: rgb(157, 148, 148);
+  transition: 0.3s ease-in;
+ }
